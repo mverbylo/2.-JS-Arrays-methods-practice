@@ -43,7 +43,7 @@ const arr82 = arr81.slice(3); //[4, 5]
 // 9. Дан массив [1, 2, 3, 4, 5]. С помощью метода splice преобразуйте массив в [1, 4, 5].
 const arr9 = [1, 2, 3, 4, 5];
 arr9.splice(1, 2);
-//arr91 = [1, 4, 5]
+//arr9 = [1, 4, 5]
 
 // 10. Дан массив [1, 2, 3, 4, 5]. С помощью метода splice запишите в новый массив элементы [2, 3, 4].
 const arr101 = [1, 2, 3, 4, 5];
@@ -99,8 +99,10 @@ const users15 = [
   { firstName: "Test'ya", lastName: 'Testovna', age: 16, gender: 'female' },
   { firstName: 'Logina', lastName: "Consol'evna", age: 42, gender: 'female' },
 ];
-users15.map(function (elem) {
-  elem.telephoneNumber = 1234567;
+const newUsers15 = users15.map(function (elem) {
+  const newUsers15 = structuredClone(elem);
+  newUsers15.telephoneNumber = 1234567;
+  return newUsers15;
 });
 
 // Работа с filter
