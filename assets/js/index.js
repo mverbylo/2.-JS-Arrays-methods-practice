@@ -37,7 +37,7 @@ const arr72 = arr71.slice(0, 3); //[1, 2, 3]
 
 // 8. Дан массив [1, 2, 3, 4, 5]. С помощью метода slice запишите в новый элементы [4, 5].
 const arr81 = [1, 2, 3, 4, 5];
-const arr82 = arr81.slice(3); //[4, 5]
+const arr82 = arr81.slice(-2); //[4, 5]
 
 // Работа с splice
 // 9. Дан массив [1, 2, 3, 4, 5]. С помощью метода splice преобразуйте массив в [1, 4, 5].
@@ -58,14 +58,16 @@ arr111.splice(3, 0, 'a', 'b', 'c');
 // 12. Дан массив [1, 2, 3, 4, 5]. С помощью метода splice сделайте из него массив [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].
 const arr121 = [1, 2, 3, 4, 5];
 arr121.splice(1, 0, 'a', 'b');
-arr121.splice(6, 0, 'c');
-arr121.splice(8, 0, 'e');
+arr121.splice(-1, 0, 'c');
+arr121.splice(arr121.length, 0, 'e');
 //arr121 =[1, 'a', 'b', 2, 3, 4, 'c', 5, 'e']
 
 // Работа с sort
 // 13.Дан массив [3, 4, 1, 2, 7]. Отсортируйте его.
 const arr131 = [3, 4, 1, 2, 7];
-arr131.sort(); //[1, 2, 3, 4, 7]
+arr131.sort(function (a, b) {
+  return a - b;
+}); //[1, 2, 3, 4, 7]
 
 // Работа с forEach
 // 14. Дан массив со следующими объектами внутри ...
@@ -118,7 +120,7 @@ const users16 = [
   { firstName: 'Null', lastName: 'Nullovich', gender: 'male' },
 ];
 const users16New = users16.filter(function (elem) {
-  return elem.age >= 18 && elem.gender;
+  return elem.age >= 18 && elem.gender === 'male';
 });
 // {firstName: 'Test', lastName: 'Testovich', age: 42, gender: 'male'}
 // {firstName: 'Logina', lastName: "Consol'evna", age: 42, gender: 'female'}
